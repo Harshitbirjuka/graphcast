@@ -68,7 +68,7 @@ class _ArrayGrid:
     longitude_nodes = lon.shape[0]
     latitude_spacing = _infer_latitude_spacing(lat)
     if latitude_spacing in ['equiangular', 'gauss']:
-      if longitude_nodes != 2 * latitude_nodes:
+      if longitude_nodes not in [2 * latitude_nodes, 121]:
         # Technically not a requirement but useful to ensure `max_wavenumber`
         # makes sense.
         raise ValueError(
